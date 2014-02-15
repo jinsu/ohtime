@@ -1,0 +1,30 @@
+# general
+*~
+*.log
+/tmp
+/dump
+/out
+
+# Eclipse
+/.settings
+/.cache
+/.project
+/.classpath
+/bin
+
+# SBT
+/project/project
+/project/target
+/target
+/.target
+/dist
+
+# IDEA
+/.history
+/.idea
+/*.iml
+/.idea_modules
+
+# Play
+/RUNNING_PID
+/logs

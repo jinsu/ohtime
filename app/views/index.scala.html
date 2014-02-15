@@ -1,0 +1,24 @@
+@(bizs: List[Business], bizForm: Form[String])
+
+@import helper._
+
+@main("Businses List") {
+  <h1>@bizs.size places</h1>
+  <ul>
+    @bizs.map { biz =>
+      <li>
+      @biz.name
+      @form(routes.Application.deleteBiz(biz.id)) {
+        <input type="submit" value="Delete">
+        }
+      </li>
+      }
+  </ul>
+
+  <h2>Add a new Business</h2>
+
+  @form(routes.Application.newBiz) {
+    @inputText(bizForm("name"))
+    <input type="submit" value="Create">
+  }
+}
