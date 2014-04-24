@@ -1,0 +1,36 @@
+@* ohDetail Template File *@
+@(ohDetail: SimpleOH)
+
+@oh(ohDetail.name + " Page(Detail)") {
+    <div class="container-fluid">
+    <div class="page-header">
+    <h1>@ohDetail.name</h1>
+    <span><a href="@routes.OHs.edit(ohDetail.id.get)">edit</a></span>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-12 col-md12">
+    <div class="table-responsive">
+    <table class="table table-striped">
+    <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+    </tr>
+    <tr>
+    <td>Size</td>
+    <td>@ohDetail.size</td>
+    </tr>
+    <tr>
+    <td>Created At</td>
+    <td>@ohDetail.created_at.toString()</td>
+    </tr>
+    <tr>
+    <td>Updated At</td>
+    <td>@ohDetail.updated_at.toString()</td>
+    </tr>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+  }

@@ -5,10 +5,30 @@
 # Home page
 GET     /                           controllers.Application.index
 
-# Bizness!
-GET     /biz                        controllers.Application.showBiz
-POST    /biz                        controllers.Application.newBiz
-POST    /biz/:id/delete             controllers.Application.deleteBiz(id: Long)
+# Business!
+GET     /biz                        @controllers.Biz.showAllBiz
+GET     /biz.json                   @controllers.Biz.showAllBizAsJson(p: Pager)
+
+GET		/biz/new					@controllers.Biz.create
+POST    /biz                        @controllers.Biz.save
+GET		/biz/:id/edit				@controllers.Biz.edit(id: Long)
+POST    /biz/:id/edit               @controllers.Biz.update(id: Long)
+
+GET     /biz/:id                    @controllers.Biz.showBiz(id: Long)
+POST    /biz/:id/delete             @controllers.Biz.delete(id: Long)
+
+# Alcohol!
+GET     /oh                        @controllers.OHs.showAll
+GET		/oh/new					   @controllers.OHs.create
+POST    /oh                        @controllers.OHs.save
+GET		/oh/:id/edit			   @controllers.OHs.edit(id: Long)
+POST	/oh/:id/edit			   @controllers.OHs.update(id: Long)
+POST    /oh/:id/delete             @controllers.OHs.delete(id: Long)
+GET     /oh/:id                    @controllers.OHs.show(id: Long)
+
+# Drink Prices!
+POST    /drink                     @controllers.Prices.save
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /webjars/*file              controllers.WebJarAssets.at(file)

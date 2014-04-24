@@ -1,0 +1,11 @@
+@(bizList: List[SimpleBusiness])
+
+@* Calling biz.scala.html *@
+@biz("Places - OH Time") {
+<div class="container-fluid">
+  @widgets.allBizWidget(bizList)
+
+  <h2><a href="@routes.Biz.create">Add a new Business</a></h2>
+</div>
+}
+

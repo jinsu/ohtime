@@ -1,0 +1,19 @@
+@(bizForm: Form[SimpleBusiness])
+
+@import helper._
+
+@* New Business Template File *@
+@biz("Create a new place") {
+    <div class="container-fluid">
+    <div class="page-header">
+    <h1>Create a new place in OH town!</h1>
+    </div>
+
+    @form(routes.Biz.create) {
+    @inputText(bizForm("name"))
+    @inputText(bizForm("address"))
+    <input type="submit" value="Create">
+    <a href="@routes.Biz.showAllBiz">Cancel</a>
+    </div>
+  }
+}

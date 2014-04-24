@@ -1,0 +1,19 @@
+@* ohNew Template File *@
+@(ohForm: Form[SimpleOH])
+
+@import helper._
+
+@oh("Create a new alcohol") {
+<div class="container-fluid">
+<div classs="page-header">
+<h1>Add a new line of Drink!</h1>
+</div>
+
+@form(routes.OHs.create) {
+      @inputText(ohForm("name"))
+      @inputText(ohForm("size"))
+      <input type="submit" value="Create">
+      <a href="@routes.OHs.showAll">Cancel</a>
+    }
+</div>
+}

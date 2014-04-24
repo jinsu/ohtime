@@ -4,6 +4,7 @@
 /tmp
 /dump
 /out
+Makefile
 
 # Eclipse
 /.settings

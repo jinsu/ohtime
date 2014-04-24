@@ -1,0 +1,8 @@
+@* onError Template File *@
+@(throwable: Throwable)
+
+@main("500 - Internal Server Error") {
+  <h1>The server isn't being responsible...</h1>
+  <h2>Internal Server Error - Remove me before production</h2>
+  <p>@throwable.getMessage</p>
+}

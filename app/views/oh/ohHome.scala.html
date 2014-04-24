@@ -1,0 +1,14 @@
+@* all Template File *@
+@(ohList: List[SimpleOH])
+
+@import helper._
+
+@oh("Drink List") {
+<div class="container-fluid">
+
+  @widgets.allOHWidget(ohList)
+
+  <h2><a href="@routes.OHs.create">Add a new line of Drink</a></h2>
+
+</div>
+}

@@ -1,0 +1,54 @@
+@* bizDetail Template File *@
+@(bizInfo: SimpleBusiness, ohIds: List[String], priceForm: Form[SimpleDrinkPrice])
+
+@import helper._
+
+@biz(bizInfo.name + " - deatils") {
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>@bizInfo.name</h1>
+      <span><a href="@routes.Biz.edit(bizInfo.id.get)">edit</a></span>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <address>
+        @bizInfo.addr<br/>
+        <abbr title="Phone">P:</abbr> phone-number
+        </address>
+      </div>
+    </div>
+
+  <div class="row">
+    @bizInfo.drinks.map { drink =>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <img data-src="holder.js/300x200" alt=@drink.name>
+        <div class="caption">
+          <h3>@drink.name</h3>
+          <p>...</p>
+          <dl>
+            <dt>Price: $<span class="label label-default">@drink.price</span></dt>
+            <dt>ABV: <span class="badge">20.00</span>%</dt>
+          </dl>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+
+<div class="row">
+<div class="well col-sm-12">
+  <h2>Add a Drink to this place</h2>
+  @form(routes.Prices.save) {
+    @select(field=priceForm("oh_id"), options = options(ohIds))
+    @inputText(priceForm("price"))
+    <input type="hidden" name="biz_id" value=@bizInfo.id>
+    <input type="submit" value="Create">
+    <a href="/">Cancel</a>
+  }
+</div>
+</div>
+
+
+  </div>
+}

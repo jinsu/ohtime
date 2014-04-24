@@ -1,0 +1,24 @@
+@* Edit Business Template File *@
+@(id: Long, bizForm: Form[SimpleBusiness])
+
+@import helper._
+
+@biz("Edit " + bizForm("name").value + " information") {
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12">
+  @form(routes.Biz.update(id)) {
+      @inputText(bizForm("name"))
+      @inputText(bizForm("address"))
+      }
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+ @form(routes.Biz.delete(id)) {
+        <input type="submit" value="Delete">
+  }
+</div>
+</div>
+</div>
+}

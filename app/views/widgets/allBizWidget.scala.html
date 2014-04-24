@@ -1,0 +1,14 @@
+@* allBizWidget Template File *@
+@(bizList: List[SimpleBusiness])
+
+@import helper._
+
+<h2>@bizList.size places</h2>
+<div class="list-group">
+  @bizList.map { biz_element =>
+    <a class="list-group-item" href="biz/@biz_element.id">
+      <h4 class="list-group-item-heading">@biz_element.name</h4>
+      <p class="list-group-item-text">@biz_element.addr</p>
+      </a>
+  }
+</div>

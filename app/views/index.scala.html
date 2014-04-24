@@ -1,24 +1,30 @@
-@(bizs: List[Business], bizForm: Form[String])
+@* index Template File *@
 
-@import helper._
+@main("OH Time") {
 
-@main("Businses List") {
-  <h1>@bizs.size places</h1>
-  <ul>
-    @bizs.map { biz =>
-      <li>
-      @biz.name
-      @form(routes.Application.deleteBiz(biz.id)) {
-        <input type="submit" value="Delete">
-        }
-      </li>
-      }
-  </ul>
+<div class="container-fluid">
+  <div class="page-header">
+    <h1><span class="glyphicon glyphicon-search"></span> All Ktown drink prices!<small> please drink responsibly.</small></h1>
+  </div>
 
-  <h2>Add a new Business</h2>
+  <form id="main-form" class="form-horizontal col-xs-12 col-sm-12" role="form">
+    <div class="form-group col-xs-12 col-sm-5">
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+        <label class="sr-only" for="drink">Drink</label>
+        <input type="text" class="form-control" id="drink" placeholder="Tonight's Drink">
+      </div>
+    </div>
+    <div class="col-xs-1 col-sm-1"></div>
+    <div class="form-group col-xs-12 col-sm-6">
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon">near</span>
+      <label class="sr-only" for="addr">Address</label>
+      <input type="text" class="form-control input-lg" id="addr" placeholder="Current Location">
+    </div>
 
-  @form(routes.Application.newBiz) {
-    @inputText(bizForm("name"))
-    <input type="submit" value="Create">
-  }
+    </div>
+
+  </form>
+</div>
 }

@@ -1,0 +1,15 @@
+@* allOHWidget Template File *@
+@(ohList: List[SimpleOH])
+
+@import helper._
+
+<h2>@ohList.size alcohols</h2>
+
+<div class="list-group">
+@ohList.map { oh =>
+  <a class="list-group-item" href="@routes.OHs.show(oh.id.get)">
+  <h4 class="list-group-item-heading">@oh.name</h4>
+  </a>
+  }
+</div>
+

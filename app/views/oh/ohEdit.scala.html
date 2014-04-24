@@ -1,0 +1,17 @@
+@* ohEdit Template File *@
+@(id: Long, ohForm: Form[SimpleOH])
+
+@import helper._
+
+@oh("Edit " + ohForm("name").value + " information") {
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12">
+@form(routes.OHs.update(id)) {
+    @inputText(ohForm("name"))
+    @inputText(ohForm("size"))
+    }
+</div>
+</div>
+</div>
+}
